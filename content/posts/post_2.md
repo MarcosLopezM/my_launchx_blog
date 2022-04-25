@@ -6,3 +6,5 @@ draft: true
 ---
 
 Hey! Este es el contenido del nuevo post, borra esto y llena tu contenido.
+
+Esta es una línea que probablemente no se vea en la página.
