@@ -22,8 +22,8 @@ Pero...
 
 ## Usando [MathJax][mathjax] con [Hugo][hugo]
 
-Para usar **MathJax**, lo primero que debemos hacer es importarlo en algún lugar del sitio web. En este caso se importó en el archivo `/themes/hugo-winston-theme/layouts/partials/footer.html`, ya que este se incluye en cada una de las páginas del blog.  
-En nuestro caso tenemos que inialmente el archivo `footer.html` se ve como:
+Para usar **MathJax**, lo primero que debemos hacer es importarlo en algún lugar del sitio web. En este caso se importó en el archivo <code>/themes/hugo-winston-theme/layouts/partials/footer.html</code>, ya que este se incluye en cada una de las páginas del blog.  
+En nuestro caso tenemos que inialmente el archivo <code>footer.html</code> se ve como:
 ```html
   <div class="footer">
   {{ if .Site.Data.social.links }}
