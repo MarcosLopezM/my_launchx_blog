@@ -8,7 +8,7 @@ Muchas veces cuando buscamos información sobre algún tema afín a las matemát
 
 <figure style="text-align: center;">
   <img syle="display: inline-block; margin-left: auto; margin-right: auto;" src="https://user-images.githubusercontent.com/57697020/165169177-e3755a5a-e027-4f9e-9510-444bed83fa4e.png" alt="Ejemplo de una fórmula mostrada incorrectamente">
-  <figcaption>Fórmula mostra incorrectamente</figcaption>
+  <figcaption>Fórmula mostrada incorrectamente</figcaption>
 </figure>
 
 Es por eso que nos interesa integrar [MathJax][mathjax] a nuestro blog, para que los lectores puedan leer las fórmulas matemáticas como si estuvieran leyéndolas en un libro de texto.
@@ -76,7 +76,7 @@ Es necesario mencionar que **MathJax** genera código **HTML**, el cual no es re
 <div>
   \[
     \begin{align*}
-      \langle A \rangle &= \dfrac{(10 + 8 + 4 + 1)}{5},\\
+      \langle \color{blue}{\textbf{A}} \rangle &= \dfrac{(10 + 8 + 4 + 1)}{5},\\
       &= \dfrac{28}{5},\\
       &= 5.6
     \end{align*}
