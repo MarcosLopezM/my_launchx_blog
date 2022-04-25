@@ -13,7 +13,7 @@
       <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
       
       <guid>https://marcoslopezm.github.io/my_launchx_blog/posts/post_3/</guid>
-      <description>Muchas veces cuando buscamos información sobre algún tema afín a las matemáticas, nos encontramos con páginas web en las que las fórmulas matemáticas no son legibles, ya sea en forma de image o con un formato muy \( \emph{engorroso} \), lo cual es un problema para los lectores.
+      <description>Muchas veces cuando buscamos información sobre algún tema afín a las matemáticas, nos encontramos con páginas web en las que las fórmulas matemáticas no son legibles, ya sea en forma de image o con un formato muy \( \textit{engorroso} \), lo cual es un problema para los lectores.
 Es por eso que nos interesa integrar MathJax a nuestro blog, para que los lectores puedan leer las fórmulas matemáticas como si estuvieran leyéndolas en un libro de texto.</description>
     </item>
     
