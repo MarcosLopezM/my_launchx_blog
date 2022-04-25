@@ -67,6 +67,58 @@
 <p>Es por eso que nos interesa integrar <a href="https://www.mathjax.org/">MathJax</a> a nuestro blog, para que los lectores puedan leer las fórmulas matemáticas como si estuvieran leyéndolas en un libro de texto.</p>
 <p>Pero&hellip;</p>
 <h2 id="qué-es-mathjaxmathjax">¿Qué es <a href="https://www.mathjax.org/">MathJax</a>?</h2>
+<blockquote>
+<p><strong>MathJax</strong> es una librería de javascript que nos permite visualizar
+fórmulas matemáticas en los navegadores web.</p>
+</blockquote>
+<h2 id="usando-mathjaxmathjax-con-hugohugo">Usando <a href="https://www.mathjax.org/">MathJax</a> con <a href="https://gohugo.io/">Hugo</a></h2>
+<p>Para usar <strong>MathJax</strong>, lo primero que debemos hacer es importarlo en algún lugar del sitio web. En este caso se importó en el archivo <code>/themes/hugo-winston-theme/layouts/partials/footer.html</code>, ya que este se incluye en cada una de las páginas del blog.<br>
+En nuestro caso tenemos que inialmente el archivo <code>footer.html</code> se ve como:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;</span>
+  {{ if .Site.Data.social.links }}
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer-social&#34;</span><span class="p">&gt;</span>
+    {{ range .Site.Data.social.links }}
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;social-icon social-icon-{{ .name | urlize }}&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .url }}&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ .name }}&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;noopener&#34;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ .image | relURL }}&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;{{ .name }}&#34;</span><span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    {{ end }}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  {{ end }}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><p>Y, agregando las líneas de código que importan todas las funcionalidades de <strong>MathJax</strong>,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;</span>
+  {{ if .Site.Data.social.links }}
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;footer-social&#34;</span><span class="p">&gt;</span>
+    {{ range .Site.Data.social.links }}
+      <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;social-icon social-icon-{{ .name | urlize }}&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .url }}&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ .name }}&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;noopener&#34;</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;{{ .image | relURL }}&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;24&#34;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&#34;{{ .name }}&#34;</span><span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+    {{ end }}
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  {{ end }}
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;MathJax-script&#34;</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div><p>Es necesario mencionar que <strong>MathJax</strong> genera código <strong>HTML</strong>, el cual no es renderizado por el formato de <strong>MarkDown</strong> (<strong>GoldMark</strong>, formato por defecto usado por <strong>HUGO</strong>). Es por eso que se debe agregar la siguiente línea al archivo <code>config.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">[markup.goldmark.renderer]
+  unsafe = true
+</code></pre></div><p>¡Ya estamos listos para escribir estas fórmulas!</p>
+<h2 id="recreando-el-código-de-la-imagen">Recreando el código de la imagen</h2>
+<div>
+  \[
+    \begin{align*}
+      \langle A \rangle &= \dfrac{(10 + 8 + 4 + 1)}{5},\\
+      &= \dfrac{28}{5},\\
+      &= 5.6
+    \end{align*}
+  \]
+</div>
 
     </div>
   </div>
