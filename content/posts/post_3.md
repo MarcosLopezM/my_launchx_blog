@@ -83,5 +83,10 @@ Es necesario mencionar que **MathJax** genera código **HTML**, el cual no es re
   \]
 </div>
 
+____
+
+Este post fue escrito basándose en el blog [Using MathJax with HUGO][blogpost].
+
 [mathjax]: https://www.mathjax.org/
 [hugo]: https://gohugo.io/
+[blogpost]: https://ta.linzbichler.net/en/posts/it/mathematical-formulas-in-hugo-websites/
